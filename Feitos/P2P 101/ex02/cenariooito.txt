@@ -1,0 +1,6 @@
+Seu projeto está sendo avaliado e durante um teste você percebe que um item não está
+de acordo com o esperado pela régua. Sua avaliadora, no entanto, não percebe e acaba
+dando certo. Como você agiria?
+
+C) Avisa a avaliadora que há um erro no seu projeto e pede que todas as questões seguintes
+sejam marcadas como incorretas, ou que flag de Crash seja utilizada caso pertinente.

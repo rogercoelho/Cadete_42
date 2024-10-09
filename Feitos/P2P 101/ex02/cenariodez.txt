@@ -1,0 +1,6 @@
+Você esta em uma avaliação e a avaliadora encontrou uma variável em português no seu
+código. Avisou então que havia um erro de Norma e que infelizmente o seu projeto será
+zerado, porém continuou avaliando seu código. Você:
+D) Pede para verificarem juntos o documento da Norma e identifica o item que explica
+sobre o idioma obrigatório das variávels. Aceita e decisão e corrige seu código para uma
+próxima entrega

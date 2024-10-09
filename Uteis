@@ -1,0 +1,6 @@
+	 write(1, value[1], strlen(value[1])); // aqui eu uso o strlen como "buffer" do tamanho de value[1]
+	 write(1, "\n", 1);
+
+	 #define ABS(Value) ((Value) < 0 ? -(Value) : (Value)) // o "?" neste caso é o if (se verdadeiro) retorna -(value).
+	 													   // o ":" neste caso é o else (se falso) retorna (value).
+														   // esta é uma forma ternaria de utilizar o if e o else.

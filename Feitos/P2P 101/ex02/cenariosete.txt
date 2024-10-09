@@ -1,0 +1,6 @@
+Você está avaliando um projeto com vários itens. No 4º item, nota que o programa não
+funciona como esperado e marca o "Não" na régua de correção. Como você agiria a partir
+daí?
+
+B) Continuaria com a avaliação para verificar como os outros itens se comportam e
+seguiria com a troca, deixando como incorretos os próximos itens que funcionarem.

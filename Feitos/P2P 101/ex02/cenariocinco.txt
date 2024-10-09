@@ -1,0 +1,6 @@
+Essa é uma situacao realmente delicada. acredito que o principal é tentar "ler e compreender" o comportamento da pessoa avaliada  para saber se ela esta nervosa
+com a avaliacao. Muitas pessoas, no nervosismo acabam esquecendo ou se complicando na explicacao.
+Neste caso eu tentaria entender quais foram as fontes que ela pesquisou para criar o codigo e tentatia deixa-la o mais confortavel possivel para poder explicar.
+Agora, se a o avaliado realmente apenas copiou o codigo ou nao soube demonstrar qual foi a fonte de pesquisa, eu tentaria explicar, claro com empatia e calma,
+que a criacao do codigo desta forma é considerado trapaca e apresentaria as regras do processo da 42.
+Tentaria explicar e faze-la compreender sobre os prejuizos para ela propria ao resolver um codigo de forma inadequada.

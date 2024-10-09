@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenarioum.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amaferre <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/09/30 16:26:59 by amaferre          #+#    #+#              #
+#    Updated: 2024/09/30 16:29:45 by amaferre         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Entraria em contato com a avaliadora, verificando se haverá possibilidade de realizar a avaliação ou se poderiamos remacar um novo horario entre a gente, daria um tempo para a resposta. E caso não fosse possivel ou não obtivesse nenhum retorno marcaria como ausente.

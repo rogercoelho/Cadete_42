@@ -1,0 +1,5 @@
+Para evitar tal conflito, era necessário que a pessoa B soubesse explicar de maneira resumida a lógica do seu código, porém pode correr que a pessoa B tenha ficado nervosa na hora de explicar o seu código, uma maneira de evitar que a pessoa B fique nervosa seria tentar explicar de outra forma (seja como desenho ou fluxograma).
+
+Outra forma de evitar o conflito, envolve a empatia da pessoa A com a pessoa B (a pessoa A, não soube lidar com o nervosismo da pessoa B, o que a levou a suspeitar de uma trapaça)
+
+Se a pessoa B tivesse realmente trapaceado no exercício, deveria haver uma conversa entre o avaliador e o avaliado, com o objeto de entender o atitude do avaliado. A pessoa A poderia zerar a atividade e de maneira empatica conversar com a pessoa B.
