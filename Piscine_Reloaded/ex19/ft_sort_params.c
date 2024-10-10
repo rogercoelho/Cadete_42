@@ -6,14 +6,14 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:33:25 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/09 22:56:41 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/09 23:33:01 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_putchar(char c);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_swap(char **s1, char **s2);
 void	ft_putstr(char *str);
-void	ft_putchar(char c);
 
 int	main(int argc, char **argv)
 {
@@ -26,20 +26,20 @@ int	main(int argc, char **argv)
 		while (sorted != 1)
 		{
 			sorted = 1;
-			i = 1;
-			while (i < argc - 1)
+			i = 0;
+			while (++i < argc - 1)
 			{
 				if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+				{
 					ft_swap(&argv[i], &argv[i + 1]);
-				sorted = 0;
-				i++;
+					sorted = 0;
+				}
 			}
 		}
 		i = 1;
 		while (i < argc)
-		{
 			ft_putstr(argv[i++]);
-		}
+			ft_putchar('\n');
 	}
 }
 
@@ -70,3 +70,4 @@ void	ft_putstr(char *str)
 		str++;
 	}
 }
+
