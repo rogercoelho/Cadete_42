@@ -6,11 +6,9 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:03:39 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/07 19:56:59 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/09 22:55:48 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putchar(char c);
 
@@ -34,9 +32,4 @@ int	main(int argc, char **argv)
 		ft_print_params(++argv);
 	}
 	return (0);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }

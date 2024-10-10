@@ -3,4 +3,7 @@
 
 	 #define ABS(Value) ((Value) < 0 ? -(Value) : (Value)) // o "?" neste caso é o if (se verdadeiro) retorna -(value).
 	 													   // o ":" neste caso é o else (se falso) retorna (value).
-														   // esta é uma forma ternaria de utilizar o if e o else.
+														   // esta é uma forma ternaria de utilizar o if e o else
+
+while (*s1 && *s1 == *s2) // Esta é uma forma de dizer *s1 for != '\0' e se *s1 e *s2 forem iguais.
+ver struct e typedef --> conceitos importantes

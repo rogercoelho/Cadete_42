@@ -6,37 +6,39 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:33:25 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/05 06:43:32 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/09 22:56:41 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strcmp(char *s1, char *s2);
 void	ft_swap(char **s1, char **s2);
-void	ft_putchar(char c);
 void	ft_putstr(char *str);
+void	ft_putchar(char c);
 
-int	main(int nbr, char **value)
+int	main(int argc, char **argv)
 {
 	int	i;
-	int	j;
+	int	sorted;
 
-	i = 1;
-	j = 1;
-	if (nbr == 1)
+	if (argc > 1)
 	{
-		return (0);
-	}
-	while (i++ < nbr)
-	{
-		if (ft_strcmp(value[j], value[j +1]) > 0)
+		sorted = 0;
+		while (sorted != 1)
 		{
-			ft_swap(&value[j], &value[j + 1]);
+			sorted = 1;
+			i = 1;
+			while (i < argc - 1)
+			{
+				if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+					ft_swap(&argv[i], &argv[i + 1]);
+				sorted = 0;
+				i++;
+			}
 		}
 		i = 1;
-		while (i++ < nbr)
+		while (i < argc)
 		{
-			ft_putstr(value[j]);
-			j++;
+			ft_putstr(argv[i++]);
 		}
 	}
 }
@@ -67,5 +69,4 @@ void	ft_putstr(char *str)
 		ft_putchar(*str);
 		str++;
 	}
-	ft_putchar('\n');
 }
