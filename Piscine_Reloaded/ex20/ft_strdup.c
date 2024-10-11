@@ -6,11 +6,13 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 03:04:26 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/11 05:58:09 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 06:09:13 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+int	ft_strlen(char *str);
 
 char	*ft_strdup(char *src)
 {
