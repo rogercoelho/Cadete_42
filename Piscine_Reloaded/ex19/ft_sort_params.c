@@ -6,7 +6,7 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:33:25 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/09 23:33:01 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 00:47:40 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 		i = 1;
 		while (i < argc)
 			ft_putstr(argv[i++]);
-			ft_putchar('\n');
 	}
 }
 
@@ -69,5 +68,5 @@ void	ft_putstr(char *str)
 		ft_putchar(*str);
 		str++;
 	}
+	ft_putchar('\n');
 }
-
