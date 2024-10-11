@@ -6,10 +6,11 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 01:13:58 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/11 02:39:30 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 02:57:16 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #define FT_POINT_H
 
 typedef struct s_point
