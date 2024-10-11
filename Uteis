@@ -18,3 +18,22 @@ typedef struct Uteis
 }; nomedastrutura // o nome da estrutura é usado junto com o typedef e evita que voce tenha que digitar struct e o nome em todo o momento.
 // neste caso seria apenas chamar o nome da estrutura.
 
+// Estudando o malloc
+// as boas praticas diz que nao devemos utilizar o casting para o malloc.
+// também diz que é redundante o "sizeof(char) uma vez que o char é 1 byte"
+// isso quer dizer que que a sintaxe malloc(strlen(src) + 1); esta contando quantos bytes tem na string.
+// malloc --> é uma funcao.
+//(strlen(src)) --> chama a funcao strlen que conta o tamanho (quantos caracteres tem) da string src. Cada letra é 1 byte.
+// + 1) --> aqui eu adiciono mais 1 byte para receber o '\0' que identifica o final da string.
+// entao existem duas formas de se escrever o malloc:
+
+char *ft_malloc(*string)
+{
+char *poiter;
+poiter = malloc(strlen(string) + 1); // o pointer recebe atraves do malloc o tamanho igual da string (+1) que foi passada para dentro da funcao ft_malloc.
+poiter = (char *)malloc((strlen(string) + 1) * sizeof(char);
+// poiter recebe o casting do ponteiro de malloc (char *). O meio é igual. O final faz a multiplicacao pelo tamanho de um char "* sizeof(char)".
+// O tamanho da string (strlen) * o tamanho de um chas (1 byte). ou seja hello (5 caracteres) * 1 = 5. Acrescenta mai 1 para o '\0' total = 6.
+// por isso nao ha a necessidade de casting e nem de sizeof(char).
+}
+
