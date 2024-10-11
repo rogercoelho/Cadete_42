@@ -6,9 +6,11 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 03:04:26 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/11 05:07:02 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 05:11:09 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 char	*ft_strdup(char *src)
 {
