@@ -7,3 +7,14 @@
 
 while (*s1 && *s1 == *s2) // Esta é uma forma de dizer *s1 for != '\0' e se *s1 e *s2 forem iguais.
 ver struct e typedef --> conceitos importantes
+
+#pragma once // garante que o arquivo de cabecalho seja incluido apenas uma vez.
+
+typedef //define "o tipo de estrutura" nesse casso struct
+struct // é considerado um bloco contendo uma estrutura predefinida que voce pode acessar como quiser.
+typedef struct Uteis
+{
+	/* data */
+}; nomedastrutura // o nome da estrutura é usado junto com o typedef e evita que voce tenha que digitar struct e o nome em todo o momento.
+// neste caso seria apenas chamar o nome da estrutura.
+

@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": ["tela_4", "tela_2", "tela_3", "tela_1"],  // Coloco os argumentos entre "" e separados por ,.
+            "args": [],  // Coloco os argumentos entre "" e separados por ,.
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
