@@ -6,10 +6,11 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 03:04:26 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/11 05:15:09 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 05:22:45 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdlib.h>
 
 char	*ft_strdup(char *src)
@@ -19,6 +20,7 @@ char	*ft_strdup(char *src)
 
 	if (src == NULL)
 		return (NULL);
+
 	calc = malloc(strlen(src) + 1);
 	if (calc == NULL)
 	{
@@ -30,6 +32,17 @@ char	*ft_strdup(char *src)
 		*calc++ = *src++;
 	}
 	*calc = '\0';
-	free(calc);
+	free (calc);
 	return (duplicate);
 }
+
+int	main(void)
+{
+	char	*str_src;
+	char	*str_cpy;
+
+	str_src = "teste de copia!!";
+	str_cpy = ft_strdup(str_src);
+}
+
+
