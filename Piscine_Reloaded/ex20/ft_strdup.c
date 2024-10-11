@@ -6,7 +6,7 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 03:04:26 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/11 05:22:45 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/11 05:25:45 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*ft_strdup(char *src)
 		*calc++ = *src++;
 	}
 	*calc = '\0';
-	free (calc);
 	return (duplicate);
 }
 
@@ -43,6 +42,7 @@ int	main(void)
 
 	str_src = "teste de copia!!";
 	str_cpy = ft_strdup(str_src);
+	free(str_cpy);
 }
 
 
