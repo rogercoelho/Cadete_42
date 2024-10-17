@@ -37,3 +37,124 @@ poiter = (char *)malloc((strlen(string) + 1) * sizeof(char);
 // por isso nao ha a necessidade de casting e nem de sizeof(char).
 }
 
+//// ---------------------->>>>>>>>>>>>>>>..
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/16 21:06:38 by rreal-de          #+#    #+#              #
+#    Updated: 2024/10/16 23:35:19 by rreal-de         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# ****************************************************************************	#
+# NAME Define o nome da biblioteca estatica ".a"								#
+# CC define o compilador a ser usado.											#
+# Cflags define as flags de compilacao.											#
+# SRC define o local e os arquivos .c 											#
+# OBJ transforma os arquivos .c de SRC para .o 									#
+# ****************************************************************************	#
+
+NAME := libft.a
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
+SRC := 	ft_isalpha
+# ft_isdigit
+#ft_isalnum
+#isascii
+#isprint
+#strlen
+#strlcpy
+#strlcat
+#strchr
+#strrchr
+#strncmp
+#strnstr
+#toupper
+#tolower
+#memset
+#memcpy
+#memmove
+#memchr
+#memcmp
+#atoi
+#bzero
+#calloc
+#strdup
+
+OBJ := $(SRC: .c = .o)
+
+# ***********************************************************************************	#
+# ALL: Aqui comecam os "alvos" que é o que sera rodado com o comando make.				#
+# $(NAME): $(OBJ) Aqui diz que o name depende de obj. 									#
+# Essa linha garante entao que a biblioteca estatica esteja pronta antes de rodar. 		#
+# O ar é a ferramenta que altera, cria ou extrai arquivos da biblioteca estatica (.a)	#
+# O "r" insere ou altera os arquivos na biblioteca.										#
+# O "c" cria a biblioteca caso ela nao exista											#
+# O "s" cria um indice para a biblioteca que facilita a busca por simbolos				#
+# $(NAME) $(OBJ) Aqui, lista os aquivos (obj) .o e insere na biblioteca (name) libft.a	#
+# %.o: %.c Aqui fala que os arquivos .o dependem dos arquivos .c 						#
+# $(CC) $(CFLAGS) -c $< -o $@ E aqui usa o compilador (CC) usando as flags (Cflags)		#
+# para apenas compilar (-c) usando o nome do arquivo de origem ($<) para o alvo ($@)	#
+# ***********************************************************************************	#
+
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+		ar rcs $(NAME) $(OBJ)
+
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
+
+# ***********************************************************************************	#
+# Aqui é o alvo Clean. Nele é usado o comando rm para remover os arquivos (-f)			#
+# criados como objeto (OBJ)
+# ***********************************************************************************	#
+
+clean:
+		rm -f $(OBJ)
+
+
+# ***********************************************************************************	#
+# Aqui é o alvo Fclean que tem dependencia com o clean. Isso quer dizer que, antes de 	#
+# fazer a acao do Fclean, ele faz primeiro a acao do clean.								#
+# Nele é usado o comando rm para remover os arquivos (-f) criados da biblioteca (NAME)	#
+# Ou seja, full clean - > remove primeiro os objetos e depois a biblioteca				#
+# ***********************************************************************************	#
+
+fclean: clean
+		rm -f $(NAME)
+
+# ***********************************************************************************	#
+# O alvo re, recompila tudo. Ele chama primeiro o fclean, que por sua vez chama o clean #
+# e depois chama o ALL para compilar novamente.											#
+# ***********************************************************************************	#
+re: fclean all
+
+/*# ft_isdigit
+#ft_isalnum
+#isascii
+#isprint
+#strlen
+#strlcpy
+#strlcat
+#strchr
+#strrchr
+#strncmp
+#strnstr
+#toupper
+#tolower
+#memset
+#memcpy
+#memmove
+#memchr
+#memcmp
+#atoi
+#bzero
+#calloc
+#strdup
+*/
