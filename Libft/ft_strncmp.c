@@ -6,11 +6,13 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 04:39:20 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/17 05:21:59 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/17 05:33:01 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *str_1, const char *str_2, unsigned int n)
+#include "libft.h"
+
+int	ft_strncmp(const char *str_1, const char *str_2, size_t n)
 {
 	int	i;
 
