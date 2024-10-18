@@ -144,4 +144,34 @@ int	ft_atoi(const char *str)
 
 --> ft_strncmp <--
 ------------------
-==
+== Esta função compara duas strings ate um numero N de caracteres.
+== Se o N for maior que zero faz a comparacao, senao ja retorna 0 mesmo.
+== Para fazer o comparativo, usamos a posicao do ponteiro para "ver" o caractere.
+== Se eles forem diferentes, entao retorna a diferença entre os caracteres do ponteiro.
+== É muito importante incluir unsigned char (para nao retornar valor negativo).
+== Se a primeira string chegar ao final '\0' não tem mais necessidade de comparar, pois por conseqencia a string 2 sera maior do que a string 1.
+== Entao é o momento de passar o ponteiro para as proximas "casas" incrementando ele.
+== Também temos que decrementar o tamanho N até que chegue a 0.
+== E ai repete o looping. Quando N chegar a 0 significa que as strings sao iguais e nao tem diferenca de retorno.
+
+#include "libft.h"
+
+int	ft_strncmp(const char *str_1, const char *str_2, size_t n)
+{
+	while ((n > 0))
+	{
+		if (*str_1 != *str_2)
+			return ((unsigned char)*str_1 - (unsigned char)*str_2);
+		if (*str_1 == '\0' || *str_2 == '\0')
+			return (0);
+		str_1++;
+		str_2++;
+		n--;
+	}
+	return (0);
+}
+
+---------------------
+
+--> ft_strnstr <--
+------------------

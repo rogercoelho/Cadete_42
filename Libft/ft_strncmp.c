@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 04:39:20 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/10/17 05:33:01 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/10/18 02:26:54 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 int	ft_strncmp(const char *str_1, const char *str_2, size_t n)
 {
-	int	i;
-
-	i = 0;
-	while ((str_1[i] || str_2[i]) && (str_1[i] || str_2[i] <= n) && (str_1[i] == str_2[i]))
+	while ((n > 0))
 	{
+		if (*str_1 != *str_2)
+			return ((unsigned char)*str_1 - (unsigned char)*str_2);
+		if (*str_1 == '\0' || *str_2 == '\0')
+			return (0);
 		str_1++;
 		str_2++;
+		n--;
 	}
-	return (str_1 - str_2);
-}
-
-int	main(void)
-{
-	ft_strncmp("apple", "appa", 4);
+	return (0);
 }
