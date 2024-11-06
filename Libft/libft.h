@@ -6,7 +6,7 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 23:02:07 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/04 20:28:10 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/06 20:39:41 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int		ft_atoi(const char *str);
 int		ft_strncmp(const char *str_1, const char *str_2, size_t n);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 #endif
