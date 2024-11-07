@@ -28,10 +28,8 @@ SRC := 	ft_isalpha.c \
 		ft_strncmp.c \
 		ft_strlen.c \
 		ft_strlcpy.c \
-<<<<<<< HEAD
-=======
 		ft_strlcat.c \
->>>>>>> refs/remotes/origin/main
+		ft_strnstr.c \
 
 OBJ := $(SRC:.c=.o)
 
