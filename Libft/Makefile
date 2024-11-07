@@ -6,7 +6,11 @@
 #    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 21:06:38 by rreal-de          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2024/11/05 19:41:21 by lello            ###   ########.fr        #
+=======
+#    Updated: 2024/11/06 20:40:32 by rreal-de         ###   ########.fr        #
+>>>>>>> refs/remotes/origin/main
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +28,10 @@ SRC := 	ft_isalpha.c \
 		ft_strncmp.c \
 		ft_strlen.c \
 		ft_strlcpy.c \
+<<<<<<< HEAD
+=======
+		ft_strlcat.c \
+>>>>>>> refs/remotes/origin/main
 
 OBJ := $(SRC:.c=.o)
 
