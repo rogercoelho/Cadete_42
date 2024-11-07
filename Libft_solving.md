@@ -173,5 +173,63 @@ int	ft_strncmp(const char *str_1, const char *str_2, size_t n)
 
 ---------------------
 
---> ft_strnstr <--
+--> ft_strlen <--
+------------------
+
+== Esta função conta a quantidade de caracteres que uma string possui.
+== size_t é um tipo de variavel usada para "contagem" melhor que o int.
+== Const é usado para "bloquear" o conteudo da variavel char nao permitindo alteracoes.
+== Criamos uma variavel tipo size_t (contador) e iniciamos ela com 0.
+== Enquanto a string na posicao do contador for diferente se \0 imcremente o contador.
+== no final retorne o valor do contador.
+
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	lenght;
+
+	lenght = 0;
+	while (str[lenght] != '\0')
+	{
+		lenght++;
+	}
+	return (lenght);
+}
+
+---------------------
+
+--> ft_strlcpy <--
+------------------
+
+= A funcao tem como objetivo principal copiar o source (src) para destino (dts) de acordo com o tamanho do buffer (dstSize).
+= esse buffer é "recebido" junto com os outros valores.
+= o L do strlcpy é a diferenca do strcpy. Ele deve retornar o tamanho de source(src).
+= por isso a funcao pede para retornar um size_t.
+= O padrao dessa funcao deve usar a funcao strlen para calcular o comprimento de source (src) e fazer o return dela.
+= por isso, depois de copiar a origem para o destino, o retorno chama return(strlen(src)).
+=  lembre-se de que o padrão da função strlcpy na biblioteca C é retornar o comprimento de src, pois essa informação pode ser útil em algumas situações.
+
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	if (dstsize > 0)
+	{
+		i = 0;
+		while (i < dstsize - 1)
+		{
+			if (src[i] == '\0')
+				break ;
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
+}
+
+---------------------
+
+--> ft_strlcpy <--
 ------------------

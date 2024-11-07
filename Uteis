@@ -158,3 +158,6 @@ re: fclean all
 #calloc
 #strdup
 */
+
+
+ gcc -Wall -Wextra -Werror strnlcpy.c -o a.out && ./a.out # comando utilizado para compilar e executar os mesmo tempo.

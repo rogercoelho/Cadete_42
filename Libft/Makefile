@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
+#    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 21:06:38 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/04 19:57:09 by rreal-de         ###   ########.fr        #
+#    Updated: 2024/11/05 19:41:21 by lello            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRC := 	ft_isalpha.c \
 		ft_strncmp.c \
 		ft_strlen.c \
 		ft_strlcpy.c \
-		ft_strnstr.c \
 
 OBJ := $(SRC:.c=.o)
 
