@@ -6,7 +6,7 @@
 #    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:34:48 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/08 01:37:38 by lello            ###   ########.fr        #
+#    Updated: 2024/11/08 03:04:23 by lello            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC := 	ft_isalpha.c \
 		ft_strrchr.c \
 		ft_memcpy.c \
 		ft_memmove.c \
+		ft_memcmp.c \
 
 OBJ := $(SRC:.c=.o)
 

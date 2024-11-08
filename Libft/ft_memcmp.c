@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 00:53:28 by lello             #+#    #+#             */
-/*   Updated: 2024/11/08 03:07:18 by lello            ###   ########.fr       */
+/*   Created: 2024/11/08 03:00:22 by lello             #+#    #+#             */
+/*   Updated: 2024/11/08 03:16:50 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t len)
 {
-	unsigned char		*dest_loc;
-	const unsigned char	*src_loc;
+	const unsigned char	*s1_loc;
+	const unsigned char	*s2_loc;
+	size_t				i;
 
-	src_loc = src;
-	dest_loc = dest;
-	while (len > 0)
+	s1_loc = (const unsigned char *)s1;
+	s2_loc = (const unsigned char *)s2;
+	i = 0;
+	while (i < len)
 	{
-		*dest_loc = *src_loc;
-		dest_loc++;
-		src_loc++;
-		len--;
+		if (s1_loc[i] != s2_loc[i])
+		{
+			return (s1_loc[i] - s2_loc[i]);
+		}
+		i++;
 	}
-	return (dest);
+	return (0);
 }
