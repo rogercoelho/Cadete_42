@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:33:59 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/07 18:07:37 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:23:27 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -27,4 +28,10 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *str_big, const char *str_search, size_t len);
+char	*ft_strdup(const char *str);
+char	*ft_strchr(const char *string, int c);
+char	*ft_strrchr(const char *string, int c);
+void	*ft_memcpy(void *dest, const void *src, size_t len);
+void	*ft_memmove(void *dest, const void *src, size_t len);
+
 #endif

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 18:04:18 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/07 22:02:35 by lello            ###   ########.fr       */
+/*   Created: 2024/11/08 00:53:28 by lello             #+#    #+#             */
+/*   Updated: 2024/11/08 01:30:29 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-char	*ft_strnstr(const char *bigstr, const char *search, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
-	size_t	i;
-	size_t	search_len;
+	unsigned char		*dest_loc;
+	const unsigned char	*src_loc;
 
-	search_len = ft_strlen(search);
-	if (search_len == '\0')
-		return ((char *)bigstr);
-	if (len == 0)
-		return (NULL);
-	i = 0;
-	while (bigstr[i] != '\0' && i <= len - search_len)
+	src_loc = src;
+	dest_loc = dest;
+	while (len > 0)
 	{
-		if (bigstr[i] == search[0])
-		{
-			if (ft_strncmp(bigstr + i, search, search_len) == 0)
-				return ((char *)bigstr + i);
-		}
-		i++;
+		*dest_loc = *src_loc;
+		dest_loc++;
+		src_loc++;
+		len--;
 	}
-	return (NULL);
+	return (dest);
 }

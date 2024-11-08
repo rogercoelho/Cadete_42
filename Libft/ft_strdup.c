@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 18:04:18 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/07 22:02:35 by lello            ###   ########.fr       */
+/*   Created: 2024/11/07 22:18:48 by lello             #+#    #+#             */
+/*   Updated: 2024/11/07 23:32:45 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *bigstr, const char *search, size_t len)
+char	*ft_strdup(const char *str)
 {
+	size_t	str_len;
 	size_t	i;
-	size_t	search_len;
+	char	*dup;
 
-	search_len = ft_strlen(search);
-	if (search_len == '\0')
-		return ((char *)bigstr);
-	if (len == 0)
+	str_len = ft_strlen(str);
+	dup = (char *)malloc((str_len + 1) * sizeof (char));
+	if (dup == NULL)
 		return (NULL);
 	i = 0;
-	while (bigstr[i] != '\0' && i <= len - search_len)
+	while (i < str_len)
 	{
-		if (bigstr[i] == search[0])
-		{
-			if (ft_strncmp(bigstr + i, search, search_len) == 0)
-				return ((char *)bigstr + i);
-		}
+		dup[i] = str[i];
 		i++;
 	}
-	return (NULL);
+	dup[i] = '\0';
+	return (dup);
 }
