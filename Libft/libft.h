@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:33:59 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/11 14:02:51 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/11 20:15:52 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ void	ft_bzero(void *str, size_t len);
 void	*ft_calloc(size_t num, size_t size);
 char	*ft_substr(const char *str, unsigned int start, size_t len);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
+char	*ft_strjoin(const char *str_1, const char *str_2);
+char	*ft_strtrim(char const *str, char const *trim);
 
 #endif
