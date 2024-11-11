@@ -6,7 +6,7 @@
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:33:59 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/08 15:14:39 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/11 14:02:51 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ void	*ft_memchr(const void *str, int c, size_t len);
 void	*ft_memset(void *str, int c, size_t len);
 void	ft_bzero(void *str, size_t len);
 void	*ft_calloc(size_t num, size_t size);
-
-
-
+char	*ft_substr(const char *str, unsigned int start, size_t len);
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 
 #endif
