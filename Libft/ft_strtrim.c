@@ -3,49 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 20:14:52 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/11 20:54:00 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/12 03:09:01 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *str, char const *trim)
+int	ft_chartocharcmp(char c, const char *str)
 {
 	size_t	i;
-	size_t	j;
-	size_t	str_len;
-	char	*trimmed;
 
 	i = 0;
-	j = 0;
-	if (!str || !trim)
-		return (NULL);
-	if (str == '\0')
-		ft_strdup('\0');
-
-	while (str[i] == trim[j] && str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		while (str[i] != trim[j])
-		{
-			str_len++;
-		}
+		if (str[i] == c)
+			return (1);
 		i++;
-		j++;
 	}
-	j = 0;
-			// testar se percorre o str na condicao do trim e se incrementa o contador str_len
+	return (0);
+}
 
+char	*ft_strtrim(char const *str, char const *trim)
+{
+	char	*str_loc;
+	size_t	start;
+	size_t	end;
 
-
-
-
-		return (trimmed);
+	start = 0;
+	end = ft_strlen(str);
+	while (str[start] != '\0' && ft_chartocharcmp(str[start], trim) != 0)
+	{
+		start++;
 	}
-
-
-
-
+	while (end > start && ft_chartocharcmp(str[end - 1], trim) != 0)
+	{
+		end--;
+	}
+	str_loc = (char *)malloc((end - start) + 1);
+	if (str_loc == NULL)
+	{
+		return (NULL);
+	}
+	ft_strlcpy(str_loc, &str[start], (end - start) + 1);
+	return (str_loc);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:33:59 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/11 20:15:52 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/12 03:17:12 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ char	*ft_substr(const char *str, unsigned int start, size_t len);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 char	*ft_strjoin(const char *str_1, const char *str_2);
 char	*ft_strtrim(char const *str, char const *trim);
+char	**ft_split(const char *str, char delim);
+
 
 #endif
