@@ -6,7 +6,7 @@
 #    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:34:48 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/12 03:18:06 by lello            ###   ########.fr        #
+#    Updated: 2024/11/13 01:49:50 by lello            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,12 @@ SRC := 	ft_isalpha.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c \
+		ft_itoa.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 
 OBJ := $(SRC:.c=.o)
 
