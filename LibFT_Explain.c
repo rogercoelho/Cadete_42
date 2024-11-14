@@ -105,8 +105,13 @@ A memória sendo preenchida com zeros é util para limpar dados de forma segura 
 de usar.
 */
 
+// inclui a biblioteca libft.h
 #include "libft.h"
 
+//chama a função bzero que recebe como parâmetro um ponteiro da variavel str do tipo void
+// e uma variavel de "tamanho" do tipo size_t. O size_t é mais usado para contadores ou para
+// identificar um tamanho de algo. Neste caso é o tamanho do ponteiro que será preenchido com 0.
+// void -> não possui um retorno (vazio).
 void	ft_bzero(void *str, size_t len)
 {
 	unsigned char	*str_loc;
