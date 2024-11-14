@@ -6,7 +6,7 @@
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 20:14:26 by lello             #+#    #+#             */
-/*   Updated: 2024/11/13 00:17:11 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/14 06:18:45 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_itoa_len(long num)
 	if (num < 0)
 	{
 		len++;
-		num = -num;
+		num = -(num);
 	}
 	while (num >= 1)
 	{
@@ -40,10 +40,10 @@ static char	*ft_num_to_str(long num, char *str, size_t len)
 	if (num < 0)
 	{
 		str[0] = '-';
-		num = -num;
+		num = -(num);
 	}
 	len--;
-	while (len)
+	while (len > 0)
 	{
 		str[len] = (num % 10) + '0';
 		num /= 10;
