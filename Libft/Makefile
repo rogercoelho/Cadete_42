@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
+#    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:34:48 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/13 01:49:50 by lello            ###   ########.fr        #
+#    Updated: 2024/11/15 19:26:26 by rreal-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,18 +48,35 @@ SRC := 	ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 
+BONUS_SRC := 	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+
+
 OBJ := $(SRC:.c=.o)
+BONUS_OBJ := $(BONUS_SRC:.c=.o)
+BONUS_FLAG := .bonus_compiled
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
+bonus: $(BONUS_FLAG)
+
+$(BONUS_FLAG): $(BONUS_OBJ)
+		ar rcs $(NAME) $(BONUS_OBJ)
+		touch $(BONUS_FLAG)
+
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		rm -f $(OBJ)
+		rm -f $(BONUS_OBJ)
+		rm -f $(BONUS_FLAG)
 
 
 fclean: clean
