@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 19:26:57 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/18 17:37:16 by rreal-de         ###   ########.fr       */
+/*   Created: 2024/11/18 19:23:58 by rreal-de          #+#    #+#             */
+/*   Updated: 2024/11/18 20:29:44 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <stdlib.h>
+
+typedef struct s_list
 {
-	t_list	*last;
+	void			*content;
+	struct s_list	*link;
+}	t_list;
+char	*get_next_line(int fd);
+t_list	*ft_lstnew(void *content);
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	last = *lst;
-	last = ft_lstlast(*lst);
-	last -> next = new;
-}
+#endif

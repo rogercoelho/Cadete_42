@@ -6,7 +6,7 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:20:08 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/15 19:24:58 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:16:11 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-
 	while (lst -> next != NULL)
 	{
 		lst = lst -> next;

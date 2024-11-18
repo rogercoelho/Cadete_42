@@ -6,7 +6,7 @@
 #    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:34:48 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/15 19:26:26 by rreal-de         ###   ########.fr        #
+#    Updated: 2024/11/18 18:08:23 by rreal-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,10 @@ BONUS_SRC := 	ft_lstnew.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
 				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
 
 
 OBJ := $(SRC:.c=.o)
