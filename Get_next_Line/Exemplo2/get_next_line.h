@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumfred <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 19:23:58 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/20 02:01:08 by lello            ###   ########.fr       */
+/*   Created: 2021/11/28 11:33:59 by lumfred           #+#    #+#             */
+/*   Updated: 2021/11/28 11:43:13 by lumfred          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdlib.h>
-# include <fcntl.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-typedef struct s_list
-{
-	char			*content;
-	struct s_list	*next_node;
-}	t_list;
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+char	*make_line(char **str, int chars, char **buf);
 char	*get_next_line(int fd);
-
 
 #endif
