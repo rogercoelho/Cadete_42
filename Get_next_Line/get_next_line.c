@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:09:42 by lello             #+#    #+#             */
-/*   Updated: 2024/11/20 21:45:25 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/21 14:17:00 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,14 @@ char	*ft_create_line(size_t read_chars, char *str)
 
 void	ft_include_node(t_list *list, char *line)
 {
-	while (list->next_node == NULL)
-	{
-		list -> content = line;
-		list = list -> next_node;
-	}
-	list->next_node = malloc(sizeof(t_list));
+	while (list->next_node != NULL)
+		list = list ->next_node;
+
+	list -> next_node = malloc(sizeof(t_list));
 	if (!list -> next_node)
 		return ;
-	list -> content = line;
-	list -> next_node = NULL;
+	list -> next_node -> content = line;
+	list -> next_node ->next_node = NULL;
 }
 
 
@@ -97,40 +95,40 @@ char	*get_next_line(int fd)
 }
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h> // Para a função open
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <fcntl.h> // Para a função open
 
 
-int main(void)
-{
-    int fd;
-    char *result;
+// int main(void)
+// {
+//     int fd;
+//     char *result;
 
-    // Abrindo um arquivo de texto em modo de leitura
-    fd = open("./test.txt", O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Erro ao abrir o arquivo");
-        return (1);
-    }
+//     // Abrindo um arquivo de texto em modo de leitura
+//     fd = open("./test.txt", O_RDONLY);
+//     if (fd == -1)
+//     {
+//         perror("Erro ao abrir o arquivo");
+//         return (1);
+//     }
 
-    // Chamando a função get_next_line
-    result = get_next_line(fd);
+//     // Chamando a função get_next_line
+//     result = get_next_line(fd);
 
-    // Verificando e imprimindo o resultado (se for aplicável)
-    if (result)
-    {
-        printf("Linha lida: %s\n", result);
-        free(result);
-    }
-    else
-    {
-        printf("Nenhuma linha lida ou erro ocorreu.\n");
-    }
+//     // Verificando e imprimindo o resultado (se for aplicável)
+//     if (result)
+//     {
+//         printf("Linha lida: %s\n", result);
+//         free(result);
+//     }
+//     else
+//     {
+//         printf("Nenhuma linha lida ou erro ocorreu.\n");
+//     }
 
-    // Fechando o arquivo
-    close(fd);
+//     // Fechando o arquivo
+//     close(fd);
 
-    return (0);
-}
+//     return (0);
+// }
