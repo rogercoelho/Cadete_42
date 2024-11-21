@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:42:24 by deordone          #+#    #+#             */
-/*   Updated: 2024/11/20 01:53:42 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/20 18:09:29 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ int	ft_contsize(t_gnl_list *temp)
 int	ft_cpylst(t_gnl_list *temp, char *line, int displacer)
 {
 	int	i;
+	int j;
+
+	while (i != '\n')
+	{
+		i++;
+	}
+
 
 	while (temp)
 	{
@@ -190,7 +197,7 @@ void	ft_gnl_lstnew(t_gnl_list **lst, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_gnl_list	*lst = NULL;
+	static t_gnl_list	*lst;
 	char				*line;
 	int					l_line;
 

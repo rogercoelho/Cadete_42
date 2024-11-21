@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 11:36:12 by lumfred           #+#    #+#             */
-/*   Updated: 2024/11/20 02:13:21 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/20 18:09:29 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,10 +177,10 @@ char	*get_next_line(int fd)
 int main(void)
 {
     int fd;
-    char *result;
+	char *result = "1";
 
     // Abrindo um arquivo de texto em modo de leitura
-    fd = open("test.txt", O_RDONLY);
+    fd = open("./test.txt", O_RDONLY);
     if (fd == -1)
     {
         perror("Erro ao abrir o arquivo");
@@ -188,17 +188,13 @@ int main(void)
     }
 
     // Chamando a função get_next_line
-    result = get_next_line(fd);
 
     // Verificando e imprimindo o resultado (se for aplicável)
-    if (result)
+    while (result)
     {
+		 result = get_next_line(fd);
         printf("Linha lida: %s\n", result);
         free(result);
-    }
-    else
-    {
-        printf("Nenhuma linha lida ou erro ocorreu.\n");
     }
 
     // Fechando o arquivo
