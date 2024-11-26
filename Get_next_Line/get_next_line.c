@@ -6,77 +6,63 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:09:42 by lello             #+#    #+#             */
-/*   Updated: 2024/11/21 19:25:43 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/25 21:03:26 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_create_line(int *read_chars, char *str, int *i)
+char	*ft_create_line(int read_chars, char *str, int *val_i)
 {
 	char	*str_return;
 	int		j;
+	int		i;
 
+	i = *val_i;
 	if (read_chars == 0)
 		return (NULL);
-	str_return = (char *)malloc((*read_chars) + 1);
+	str_return = (char *)malloc((read_chars) + 1);
 	if (!str_return)
 		return (NULL);
 	j = 0;
-	while (j < *read_chars && str[*i] != '\n')
+	while (j < read_chars && str[i] != '\n')
 	{
-		str_return[j] = str[*i];
+		str_return[j] = str[i];
 		j++;
-		(*i)++;
+		i++;
 	}
-	if (str[*i] == '\n')
+	if (str[i] == '\n')
 	{
 		str_return[j] = '\n';
 		j++;
 	}
 	str_return[j] = '\0';
+	*val_i = i;
 	return (str_return);
 }
 
-void	ft_include_node(t_list *list, char *line)
+char	*validate(int read_chars, char *str, int *i, char *line)
 {
-	list->content = line;
-	list->next_node = NULL;
-}
+	static int	val_i;
 
-static int	node_verify(t_list *list)
-{
-	if (list->content == NULL)
-		return (0);
-	return (1);
-}
-
-char	*validate(int *i, int *read_chars, char *str, char *line)
-{
-	static t_list	*list;
-
-	list = malloc(sizeof(t_list));
-	node_verify(list);
-	while (i <= read_chars)
+	while (val_i <= read_chars)
 	{
-		if (str[*i] != '\n')
+		if (str[val_i] != '\n')
 		{
-			line = ft_create_line (read_chars, str, i);
-			ft_include_node(list, line);
+			line = ft_create_line(read_chars, str, &val_i);
 			break ;
 		}
-		if (str[*i] == '\n')
+		if (str[val_i] == '\n')
 		{
-			i++;
-			if (str[*i] == '\0')
-				return (NULL);
-			line = ft_create_line (read_chars, str, i);
-			ft_include_node(list, line);
+			(val_i)++;
+			if (str[val_i] == '\0')
+				break ;
+			line = ft_create_line(read_chars, str, &val_i);
 			break ;
 		}
-		i++;
+		val_i++;
 	}
-	free(list);
+	*i = val_i;
 	return (line);
 }
 
@@ -87,48 +73,32 @@ char	*get_next_line(int fd)
 	static int	read_chars;
 	static int	i;
 
-	line = malloc(BUFFER_SIZE + 2);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (read_chars == 0)
 	{
 		str = malloc(BUFFER_SIZE + 1);
+		if (!str)
+			return (NULL);
 		read_chars = read(fd, str, BUFFER_SIZE);
 	}
 	if (read_chars < 0)
-		return (free(str), free(line), NULL);
-	line = validate(&i, &read_chars, str, line);
+		return (NULL);
+
+	line = validate(read_chars, str, &i, NULL);
+	if (i == read_chars)
+	{
+		free(str);
+		str = malloc(BUFFER_SIZE + 1);
+		if (!str)
+			return (NULL);
+		read_chars = read(fd, str, BUFFER_SIZE);
+		i = 0;
+		if (read_chars <= 0)
+		{
+			free(str);
+			return (NULL);
+		}
+	}
 	return (line);
-}
-
-
-#include <fcntl.h>  // Para open()
-#include <stdio.h>  // Para printf()
-#include <stdlib.h> // Para free()
-#include "get_next_line.h"
-
-int main(void)
-{
-    int fd;
-    char *line;
-
-    // Abrir o arquivo "test.txt" no modo somente leitura
-    fd = open("test.txt", O_RDONLY);
-    if (fd < 0)
-    {
-        perror("Erro ao abrir o arquivo");
-        return (1);
-    }
-
-    // Ler e imprimir cada linha até que `get_next_line` retorne NULL
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line); // Imprimir a linha
-        free(line);         // Liberar a memória alocada por `get_next_line`
-    }
-
-    // Fechar o arquivo
-    close(fd);
-
-    return (0);
 }

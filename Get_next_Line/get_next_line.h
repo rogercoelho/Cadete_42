@@ -6,7 +6,7 @@
 /*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:23:58 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/11/20 20:51:25 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:23:13 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ typedef struct s_list
 	struct s_list	*next_node;
 }	t_list;
 char	*get_next_line(int fd);
-
 
 #endif
