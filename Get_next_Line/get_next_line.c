@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:09:42 by lello             #+#    #+#             */
-/*   Updated: 2024/11/25 21:03:26 by rreal-de         ###   ########.fr       */
+/*   Updated: 2024/11/27 02:59:37 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*get_next_line(int fd)
 		read_chars = read(fd, str, BUFFER_SIZE);
 	}
 	if (read_chars < 0)
+		free(str);
 		return (NULL);
 
 	line = validate(read_chars, str, &i, NULL);
