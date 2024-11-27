@@ -6,100 +6,105 @@
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:09:42 by lello             #+#    #+#             */
-/*   Updated: 2024/11/27 02:59:37 by lello            ###   ########.fr       */
+/*   Updated: 2024/11/27 14:55:10 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_create_line(int read_chars, char *str, int *val_i)
-{
-	char	*str_return;
-	int		j;
-	int		i;
-
-	i = *val_i;
-	if (read_chars == 0)
-		return (NULL);
-	str_return = (char *)malloc((read_chars) + 1);
-	if (!str_return)
-		return (NULL);
-	j = 0;
-	while (j < read_chars && str[i] != '\n')
-	{
-		str_return[j] = str[i];
-		j++;
-		i++;
-	}
-	if (str[i] == '\n')
-	{
-		str_return[j] = '\n';
-		j++;
-	}
-	str_return[j] = '\0';
-	*val_i = i;
-	return (str_return);
-}
-
-char	*validate(int read_chars, char *str, int *i, char *line)
-{
-	static int	val_i;
-
-	while (val_i <= read_chars)
-	{
-		if (str[val_i] != '\n')
-		{
-			line = ft_create_line(read_chars, str, &val_i);
-			break ;
-		}
-		if (str[val_i] == '\n')
-		{
-			(val_i)++;
-			if (str[val_i] == '\0')
-				break ;
-			line = ft_create_line(read_chars, str, &val_i);
-			break ;
-		}
-		val_i++;
-	}
-	*i = val_i;
-	return (line);
-}
+char	*read_fd_text(int fd, char *fd_text);
+void	*ft_calloc(size_t num, size_t size);
+void	*ft_memset(void *str, int c, size_t len);
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
-	char		*line;
-	static int	read_chars;
-	static int	i;
+	char		*line_out;
+	static char	*fd_text;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (read_chars == 0)
-	{
-		str = malloc(BUFFER_SIZE + 1);
-		if (!str)
-			return (NULL);
-		read_chars = read(fd, str, BUFFER_SIZE);
-	}
-	if (read_chars < 0)
-		free(str);
-		return (NULL);
-
-	line = validate(read_chars, str, &i, NULL);
-	if (i == read_chars)
-	{
-		free(str);
-		str = malloc(BUFFER_SIZE + 1);
-		if (!str)
-			return (NULL);
-		read_chars = read(fd, str, BUFFER_SIZE);
-		i = 0;
-		if (read_chars <= 0)
-		{
-			free(str);
-			return (NULL);
-		}
-	}
-	return (line);
+	fd_text = read_fd_text(fd, fd_text);
 }
+
+char	*read_fd_text(int fd, char *fd_text)
+{
+	int		total_bytes;
+	char	*text_buffer;
+
+	if (fd_text == NULL)
+		fd_text = ft_calloc(1, 1);
+	text_buffer = calloc((BUFFER_SIZE + 1), sizeof(char));
+	if (!text_buffer)
+		return (NULL);
+	total_bytes = 1;
+	while (total_bytes > 0)
+	{
+		total_bytes = read(fd, text_buffer, BUFFER_SIZE);
+	}
+}
+
+void	*ft_calloc(size_t num, size_t size)
+{
+	size_t	total_mem_size;
+	void	*str;
+
+	total_mem_size = num * size;
+	str = malloc(total_mem_size);
+	if (str == 0)
+	{
+		return (NULL);
+	}
+	ft_memset(str, 0, total_mem_size);
+	return (str);
+}
+
+void	*ft_memset(void *str, int c, size_t len)
+{
+	unsigned char	*str_loc;
+	size_t			i;
+
+	i = 0;
+	str_loc = (unsigned char *)str;
+	while (i < len)
+	{
+		str_loc[i] = (unsigned char)c;
+		i++;
+	}
+	return (str);
+}
+
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+
+
+
+
+int main(void)
+{
+    int fd;
+	char *result = "1";
+
+    // Abrindo um arquivo de texto em modo de leitura
+    fd = open("./test.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Erro ao abrir o arquivo");
+        return (1);
+    }
+
+    // Chamando a função get_next_line
+
+    // Verificando e imprimindo o resultado (se for aplicável)
+    while (result)
+    {
+		 result = get_next_line(fd);
+        printf("Linha lida: %s\n", result);
+        free(result);
+    }
+
+    // Fechando o arquivo
+    close(fd);
+
+    return (0);

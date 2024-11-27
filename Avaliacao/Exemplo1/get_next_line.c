@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-/*
+
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -79,7 +79,7 @@ void	*ft_calloc(unsigned int count, unsigned int size)
 
 
 
- */
+
 
 char	*ft_join_and_free(char *text, char *buffer)
 {
@@ -180,7 +180,7 @@ char	*get_next_line(int fd)
 	text = clean_first_line(text);
 	return (output_text);
 }
-/*
+
 int main()
 {
 	int fd = open("test.txt", O_RDONLY);
@@ -194,4 +194,4 @@ int main()
 	// printf("%s", get_next_line(fd));
 
 	return 0;
-} */
+}
