@@ -161,3 +161,38 @@ re: fclean all
 
 
  gcc -Wall -Wextra -Werror strnlcpy.c -o a.out && ./a.out # comando utilizado para compilar e executar os mesmo tempo.
+
+
+
+// ENTENDENDO O FREE DO malloc
+
+//  quando voce cria um ponteiro, esse ponteiro é null (0X0) isso quer dizer que voce AINDA	nao alocou memoria nenhuma.
+// voce apenas "reservou" um endereco na memoria para ser usado.
+// quando voce faz *ponteiro = malloc(10); voce esta alocando 10 bytes de memoria para o ponteiro.
+// neste momento o ponteiro recebe um espaco de 10 e passa de null (0X0) para "em branco" ("").
+// A partir este momento voce "gravou" uma memoria. E se voce nao liberar, vai dar leak de memoria.
+// Por isso que todo ponteiro de memoria alocada com malloc deve ser liberado com free.
+// para liberar, a gente tem que proteger o endereco de memoria porque nao podemos das free diretamente senao perdemos o
+// conteudo que tem la.
+// para proteger o endereco de memoria, a gente tem que criar um ponteiro temporario.
+// esse ponteito temporario recebe o endereco de memoria do ponteiro que queremos liberar.
+// ai entao, "transferimos" o conteudo que queremos armazenar no ponteiro. Isso faz que o ponteiro origianl receba outro
+// endereco e o ponteiro temporario fique com o endereco antigo (aquele que queremos liberar).
+// ai entao, liberamos o ponteiro temporario que tem o endereco antigo com free.
+// Quando retornarmos entao o ponteiro, ele tera um endereco novo com o conteudo que queremos. E o endereco antigo foi liberado.
+
+
+
+
+char *ft_free_mem(char *mem_tobefree, char *value_to_include) // passa o endereco de memoria do malloc, passa a variavel com o valor a incluir.
+{
+	char	*change_mem_address; // cria um ponteiro temporario para receber o endereco de memoria do malloc.
+
+	if (mem_tobefree == NULL)	// se o endereco de memoria do malloc for nulo, retorna nulo.
+		return (NULL);
+	change_mem_address = mem_tobefree;  // o ponteiro temporario recebe o endereco de memoria do malloc para ser liberado.
+	mem_tobefree = value_to_include;	// a variavel mem_tobefree recebe o novo endereco de memoria com o valor a ser incluido.
+	free(change_mem_address);			// a variavel temporaria que tinha o endereco que foi mallocado (endereco antigo do mem_tobefree) é liberada.
+	change_mem_address = NULL;			// o ponteiro temporario recebe nulo.
+	return (mem_tobefree);				// a variavel mem_tobefree que agora tem o endereco de value_to_include é retornada.
+}

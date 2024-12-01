@@ -195,3 +195,50 @@ int main()
 
 	return 0;
 }
+
+
+/* char	*ft_free_mem(char *mem_tobefree, char *value_to_include)
+{
+	char	*change_mem_address;
+
+	if (mem_tobefree == NULL)
+		return (NULL);
+	change_mem_address = mem_tobefree;
+	mem_tobefree = value_to_include;
+	free (change_mem_address);
+	change_mem_address = NULL;
+	return (change_mem_address);
+} */
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h> // Para a função open
+
+
+int main(void)
+{
+    int fd;
+	char *result = "1";
+
+    // Abrindo um arquivo de texto em modo de leitura
+    fd = open("./test.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Erro ao abrir o arquivo");
+        return (1);
+    }
+
+    // Chamando a função get_next_line
+
+    // Verificando e imprimindo o resultado (se for aplicável)
+    while (result)
+    {
+		 result = get_next_line(fd);
+        printf("Linha lida: %s\n", result);
+        free(result);
+    }
+
+    // Fechando o arquivo
+    close(fd);
+
+    return (0);
+}

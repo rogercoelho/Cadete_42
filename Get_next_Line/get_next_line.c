@@ -5,42 +5,123 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 21:09:42 by lello             #+#    #+#             */
-/*   Updated: 2024/11/27 14:55:10 by lello            ###   ########.fr       */
+/*   Created: 2024/11/29 14:33:18 by lello             #+#    #+#             */
+/*   Updated: 2024/12/01 17:11:42 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*read_fd_text(int fd, char *fd_text);
+char	*ft_prepare_conditions(int fd, char *file_text);
+char	*ft_strjoin(char *str_1, const char *str_2);
+size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t num, size_t size);
+char	*ft_strchr(const char *string, int c);
+char	*ft_print_conditions(char *text_out, char **file_text);
+char	*ft_rem_line_file_text(char *file_text);
+char	*ft_free_mem(char *mem_tobefree, char *value_to_include);
 void	*ft_memset(void *str, int c, size_t len);
+char	*get_next_line(int fd);
 
-char	*get_next_line(int fd)
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char		*line_out;
-	static char	*fd_text;
+	size_t	i;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	fd_text = read_fd_text(fd, fd_text);
+	if (dstsize > 0)
+	{
+		i = 0;
+		while (i < dstsize - 1)
+		{
+			if (src[i] == '\0')
+				break ;
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }
 
-char	*read_fd_text(int fd, char *fd_text)
-{
-	int		total_bytes;
-	char	*text_buffer;
 
-	if (fd_text == NULL)
-		fd_text = ft_calloc(1, 1);
-	text_buffer = calloc((BUFFER_SIZE + 1), sizeof(char));
-	if (!text_buffer)
+char	*ft_free_mem(char *mem_tobefree, char *value_to_include)
+{
+	char	*change_mem_address;
+
+	if (mem_tobefree == NULL)
 		return (NULL);
-	total_bytes = 1;
-	while (total_bytes > 0)
+	change_mem_address = mem_tobefree;
+	mem_tobefree = value_to_include;
+	free (change_mem_address);
+	change_mem_address = NULL;
+	return (mem_tobefree);
+}
+
+char	*ft_rem_line_file_text(char *file_text)
+{
+	int		i;
+	int		j;
+	char	*string;
+
+	i = 0;
+	j = 0;
+	while (file_text[i] != '\0' && file_text[i] != '\n')
+		i++;
+	if (file_text[i] == '\0')
+		return (free(file_text), NULL);
+	string = ft_calloc((ft_strlen(file_text) - i + 1), sizeof (*file_text));
+	if (string == NULL)
+		return (NULL);
+	while (file_text[++i] != '\0')
+		string[j++] = file_text[i];
+	string[j] = '\0';
+	string = ft_free_mem(file_text, string);
+	return (string);
+}
+
+char	*ft_strjoin(char *str_1, const char *str_2)
+{
+	char	*str_join;
+	size_t	str_len1;
+	size_t	str_len2;
+
+	if (str_1 == NULL || str_2 == NULL)
+		return (NULL);
+	str_len1 = ft_strlen(str_1);
+	str_len2 = ft_strlen(str_2);
+	str_join = malloc((str_len1 + str_len2) + 1);
+	if (str_join == NULL)
+		return (NULL);
+	ft_strlcpy(str_join, str_1, (str_len1 + 1));
+	ft_strlcpy(&str_join[str_len1], str_2, (str_len2 + 1));
+	free (str_1);
+	str_1 = NULL;
+	return (str_join);
+}
+
+char	*ft_strchr(const char *string, int c)
+{
+	while (*string != '\0' && *string != (char) c)
 	{
-		total_bytes = read(fd, text_buffer, BUFFER_SIZE);
+		string++;
 	}
+	if (*string != (char)c)
+	{
+		return (NULL);
+	}
+	return ((char *)string);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	lenght;
+
+	lenght = 0;
+	while (str[lenght] != '\0')
+	{
+		lenght++;
+	}
+	return (lenght);
 }
 
 void	*ft_calloc(size_t num, size_t size)
@@ -73,38 +154,72 @@ void	*ft_memset(void *str, int c, size_t len)
 	return (str);
 }
 
-
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-
-
-
-int main(void)
+char	*get_next_line(int fd)
 {
-    int fd;
-	char *result = "1";
+	char		*text_out;
+	static char	*file_text;
 
-    // Abrindo um arquivo de texto em modo de leitura
-    fd = open("./test.txt", O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Erro ao abrir o arquivo");
-        return (1);
-    }
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	file_text = ft_prepare_conditions(fd, file_text);
+	if (file_text == NULL || file_text[0] == '\0')
+	{
+		free(file_text);
+		file_text = NULL;
+		return (NULL);
+	}
+	text_out = NULL;
+	text_out = ft_print_conditions(text_out, &file_text);
+	return (text_out);
+}
 
-    // Chamando a função get_next_line
+char	*ft_prepare_conditions(int fd, char *file_text)
+{
+	char	*buffer;
+	int		total_bytes;
+	char	*find_newline;
 
-    // Verificando e imprimindo o resultado (se for aplicável)
-    while (result)
-    {
-		 result = get_next_line(fd);
-        printf("Linha lida: %s\n", result);
-        free(result);
-    }
+	if (file_text == NULL)
+		file_text = ft_calloc(1, 1);
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (buffer == NULL)
+		return (NULL);
+	total_bytes = 1;
+	while (total_bytes > 0)
+	{
+		total_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (total_bytes == -1)
+			return (free(file_text), free(buffer), NULL);
+		buffer[total_bytes] = '\0';
+		file_text = ft_strjoin(file_text, buffer);
+		find_newline = ft_strchr(file_text, '\n');
+		if (find_newline != NULL)
+			break ;
+	}
+	free (buffer);
+	buffer = NULL;
+	return (file_text);
+}
 
-    // Fechando o arquivo
-    close(fd);
 
-    return (0);
+char	*ft_print_conditions(char *text_out, char **file_text)
+{
+	int	i;
+
+	i = 0;
+	if ((*file_text)[i] == '\0')
+		return (NULL);
+	while ((*file_text)[i] != '\0' && (*file_text)[i] != '\n')
+		i++;
+	text_out = ft_calloc((i + 2), sizeof(char));
+	i = 0;
+	while ((*file_text)[i] != '\0' && (*file_text)[i] != '\n')
+	{
+		text_out[i] = (*file_text)[i];
+		i++;
+	}
+	if ((*file_text)[i] != '\0' && (*file_text)[i] == '\n')
+		text_out[i++] = '\n';
+	(*file_text) = ft_rem_line_file_text((*file_text));
+	return (text_out);
+}

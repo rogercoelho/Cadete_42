@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
+#    By: lello <lello@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:34:48 by rreal-de          #+#    #+#              #
-#    Updated: 2024/11/18 18:08:23 by rreal-de         ###   ########.fr        #
+#    Updated: 2024/11/29 21:15:39 by lello            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC := 	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_strncpy.c \
 
 BONUS_SRC := 	ft_lstnew.c \
 				ft_lstadd_front.c \
