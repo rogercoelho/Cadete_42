@@ -6,43 +6,17 @@
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:33:18 by lello             #+#    #+#             */
-/*   Updated: 2024/12/01 17:11:42 by lello            ###   ########.fr       */
+/*   Updated: 2024/12/01 22:01:54 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_prepare_conditions(int fd, char *file_text);
-char	*ft_strjoin(char *str_1, const char *str_2);
-size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t num, size_t size);
-char	*ft_strchr(const char *string, int c);
-char	*ft_print_conditions(char *text_out, char **file_text);
-char	*ft_rem_line_file_text(char *file_text);
-char	*ft_free_mem(char *mem_tobefree, char *value_to_include);
-void	*ft_memset(void *str, int c, size_t len);
 char	*get_next_line(int fd);
-
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	if (dstsize > 0)
-	{
-		i = 0;
-		while (i < dstsize - 1)
-		{
-			if (src[i] == '\0')
-				break ;
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
-}
-
+char	*ft_free_mem(char *mem_tobefree, char *value_to_include);
+char	*ft_rem_line_file_text(char *file_text);
+char	*ft_prepare_conditions(int fd, char *file_text);
+char	*ft_print_conditions(char *text_out, char **file_text);
 
 char	*ft_free_mem(char *mem_tobefree, char *value_to_include)
 {
@@ -77,81 +51,6 @@ char	*ft_rem_line_file_text(char *file_text)
 	string[j] = '\0';
 	string = ft_free_mem(file_text, string);
 	return (string);
-}
-
-char	*ft_strjoin(char *str_1, const char *str_2)
-{
-	char	*str_join;
-	size_t	str_len1;
-	size_t	str_len2;
-
-	if (str_1 == NULL || str_2 == NULL)
-		return (NULL);
-	str_len1 = ft_strlen(str_1);
-	str_len2 = ft_strlen(str_2);
-	str_join = malloc((str_len1 + str_len2) + 1);
-	if (str_join == NULL)
-		return (NULL);
-	ft_strlcpy(str_join, str_1, (str_len1 + 1));
-	ft_strlcpy(&str_join[str_len1], str_2, (str_len2 + 1));
-	free (str_1);
-	str_1 = NULL;
-	return (str_join);
-}
-
-char	*ft_strchr(const char *string, int c)
-{
-	while (*string != '\0' && *string != (char) c)
-	{
-		string++;
-	}
-	if (*string != (char)c)
-	{
-		return (NULL);
-	}
-	return ((char *)string);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	lenght;
-
-	lenght = 0;
-	while (str[lenght] != '\0')
-	{
-		lenght++;
-	}
-	return (lenght);
-}
-
-void	*ft_calloc(size_t num, size_t size)
-{
-	size_t	total_mem_size;
-	void	*str;
-
-	total_mem_size = num * size;
-	str = malloc(total_mem_size);
-	if (str == 0)
-	{
-		return (NULL);
-	}
-	ft_memset(str, 0, total_mem_size);
-	return (str);
-}
-
-void	*ft_memset(void *str, int c, size_t len)
-{
-	unsigned char	*str_loc;
-	size_t			i;
-
-	i = 0;
-	str_loc = (unsigned char *)str;
-	while (i < len)
-	{
-		str_loc[i] = (unsigned char)c;
-		i++;
-	}
-	return (str);
 }
 
 char	*get_next_line(int fd)
@@ -200,7 +99,6 @@ char	*ft_prepare_conditions(int fd, char *file_text)
 	buffer = NULL;
 	return (file_text);
 }
-
 
 char	*ft_print_conditions(char *text_out, char **file_text)
 {

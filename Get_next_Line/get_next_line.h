@@ -6,7 +6,7 @@
 /*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:23:58 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/12/01 04:14:29 by lello            ###   ########.fr       */
+/*   Updated: 2024/12/01 22:00:41 by lello            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ typedef struct s_list
 	struct s_list	*next_node;
 }	t_list;
 char	*get_next_line(int fd);
-char	*ft_prepare_conditions(int fd, char *file_text);
 char	*ft_strjoin(char *str_1, const char *str_2);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t num, size_t size);
 char	*ft_strchr(const char *string, int c);
-char	*ft_print_conditions(char *text_out, char **file_text);
-char	*ft_rem_line_file_text(char *file_text);
+void	*ft_calloc(size_t num, size_t size);
 char	*ft_free_mem(char *mem_tobefree, char *value_to_include);
+char	*ft_rem_line_file_text(char *file_text);
+char	*ft_prepare_conditions(int fd, char *file_text);
+char	*ft_print_conditions(char *text_out, char **file_text);
 
 #endif
