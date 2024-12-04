@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lello <lello@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:23:58 by rreal-de          #+#    #+#             */
-/*   Updated: 2024/12/01 22:00:41 by lello            ###   ########.fr       */
+/*   Updated: 2024/12/03 23:03:08 by rreal-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-typedef struct s_list
-{
-	char			*content;
-	struct s_list	*next_node;
-}	t_list;
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *str_1, const char *str_2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
