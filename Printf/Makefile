@@ -1,44 +1,34 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rreal-de <rreal-de@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/03 23:45:35 by rreal-de          #+#    #+#              #
-#    Updated: 2024/12/03 23:48:35 by rreal-de         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
 
-NAME := libft.a
-CC := gcc
-CFLAGS := -Wall -Wextra -Werror
-SRC := 	ft_printf.c \
+SRC = ft_printf.c \
 	ft_putchar.c \
 	ft_strlen.c \
 	ft_putstr.c \
 	ft_unsig.c \
 	ft_itoa.c \
 	ft_putint.c \
-	ft_putpnt.c \
+	ft_putpointer.c \
 	ft_puthex.c
 
 OBJ := $(SRC:.c=.o)
 
+NAME = libftprintf.a
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
-		$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -f $(OBJ)
-
+	rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
